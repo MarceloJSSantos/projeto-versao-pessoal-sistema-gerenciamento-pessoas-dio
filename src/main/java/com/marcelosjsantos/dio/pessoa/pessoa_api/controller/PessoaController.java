@@ -2,6 +2,7 @@ package com.marcelosjsantos.dio.pessoa.pessoa_api.controller;
 
 import com.marcelosjsantos.dio.pessoa.pessoa_api.dto.request.PessoaDTO;
 import com.marcelosjsantos.dio.pessoa.pessoa_api.dto.response.MessageResponseDTO;
+import com.marcelosjsantos.dio.pessoa.pessoa_api.exception.PessoaNotFoundException;
 import com.marcelosjsantos.dio.pessoa.pessoa_api.service.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,10 +28,13 @@ public class PessoaController {
         return pessoaService.criaPessoa(pessoaDTO);
     }
 
-
-
     @GetMapping
     public List<PessoaDTO> listaTodasPessoas(){
         return pessoaService.listaTodasPessoas();
+    }
+
+    @GetMapping("/{id}")
+    public PessoaDTO encontrarPorId(@PathVariable Long id) throws PessoaNotFoundException {
+        return pessoaService.encontrarPorId(id);
     }
 }

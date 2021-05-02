@@ -3,6 +3,7 @@ package com.marcelosjsantos.dio.pessoa.pessoa_api.service;
 import com.marcelosjsantos.dio.pessoa.pessoa_api.dto.request.PessoaDTO;
 import com.marcelosjsantos.dio.pessoa.pessoa_api.dto.response.MessageResponseDTO;
 import com.marcelosjsantos.dio.pessoa.pessoa_api.entity.Pessoa;
+import com.marcelosjsantos.dio.pessoa.pessoa_api.exception.PessoaNotFoundException;
 import com.marcelosjsantos.dio.pessoa.pessoa_api.mapper.PessoaMapper;
 import com.marcelosjsantos.dio.pessoa.pessoa_api.repository.PessoaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,5 +40,12 @@ public class PessoaService {
                 .stream()
                 .map(pessoaMapper::toDTO)
                 .collect(Collectors.toList());
+    }
+
+    public PessoaDTO encontrarPorId(Long id) throws PessoaNotFoundException {
+
+        Pessoa pessoa = pessoaRepository.findById(id).orElseThrow(() -> new PessoaNotFoundException(id));
+
+        return pessoaMapper.toDTO(pessoa);
     }
 }

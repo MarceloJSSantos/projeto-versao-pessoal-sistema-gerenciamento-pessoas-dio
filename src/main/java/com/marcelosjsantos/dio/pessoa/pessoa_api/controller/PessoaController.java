@@ -1,15 +1,26 @@
 package com.marcelosjsantos.dio.pessoa.pessoa_api.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.marcelosjsantos.dio.pessoa.pessoa_api.dto.MessageResponseDTO;
+import com.marcelosjsantos.dio.pessoa.pessoa_api.entity.Pessoa;
+import com.marcelosjsantos.dio.pessoa.pessoa_api.service.PessoaService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/v1/pessoas")
 public class PessoaController {
 
-    @GetMapping
-    public String getBook(){
-        return "API Test!";
+    private PessoaService pessoaService;
+
+    @Autowired
+    public PessoaController(PessoaService pessoaService) {
+        this.pessoaService = pessoaService;
+    }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public MessageResponseDTO criaPessoa(@RequestBody Pessoa pessoa) {
+        return pessoaService.criaPessoa(pessoa);
     }
 }

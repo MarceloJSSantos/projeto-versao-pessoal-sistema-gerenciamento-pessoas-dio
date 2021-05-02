@@ -8,10 +8,13 @@ import com.marcelosjsantos.dio.pessoa.pessoa_api.repository.PessoaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class PessoaService {
 
-    private PessoaRepository pessoaRepository;
+    private final PessoaRepository pessoaRepository;
 
     private final PessoaMapper pessoaMapper = PessoaMapper.INSTANCE;
 
@@ -28,5 +31,13 @@ public class PessoaService {
                 .builder()
                 .message("Criado uma pessoa com ID " + savedPessoa.getId())
                 .build();
+    }
+
+    public List<PessoaDTO> listaTodasPessoas() {
+        List<Pessoa> todasPessoas = pessoaRepository.findAll();
+        return  todasPessoas
+                .stream()
+                .map(pessoaMapper::toDTO)
+                .collect(Collectors.toList());
     }
 }

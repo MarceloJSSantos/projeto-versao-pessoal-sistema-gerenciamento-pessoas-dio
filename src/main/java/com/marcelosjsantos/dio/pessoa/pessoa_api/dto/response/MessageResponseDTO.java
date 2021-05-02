@@ -1,4 +1,4 @@
-package com.marcelosjsantos.dio.pessoa.pessoa_api.dto;
+package com.marcelosjsantos.dio.pessoa.pessoa_api.dto.response;
 
 import lombok.Builder;
 import lombok.Data;

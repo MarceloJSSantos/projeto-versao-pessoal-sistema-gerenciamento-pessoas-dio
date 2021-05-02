@@ -7,8 +7,8 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum tipoTelefone {
 
-    HOME("Casa"),
-    MOBILE("Celular"),
+    CASA("Casa"),
+    CELULAR("Celular"),
     COMMERCIAL("Comercial");
 
     private final String description;

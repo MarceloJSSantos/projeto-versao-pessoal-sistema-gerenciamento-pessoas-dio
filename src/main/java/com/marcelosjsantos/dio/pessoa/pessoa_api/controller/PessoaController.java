@@ -25,17 +25,22 @@ public class PessoaController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public MessageResponseDTO criaPessoa(@RequestBody @Valid PessoaDTO pessoaDTO) {
-        return pessoaService.criaPessoa(pessoaDTO);
+        return pessoaService.createPessoa(pessoaDTO);
     }
 
     @GetMapping
     public List<PessoaDTO> listaTodasPessoas(){
-        return pessoaService.listaTodasPessoas();
+        return pessoaService.listAll();
     }
 
     @GetMapping("/{id}")
     public PessoaDTO encontrarPorId(@PathVariable Long id) throws PessoaNotFoundException {
-        return pessoaService.encontrarPorId(id);
+        return pessoaService.findById(id);
+    }
+
+    @PutMapping("/{id}")
+    public MessageResponseDTO atualizarPorId(@PathVariable Long id, @RequestBody @Valid PessoaDTO pessoaDTO) throws PessoaNotFoundException {
+        return pessoaService.updateById(id, pessoaDTO);
     }
 
     @DeleteMapping("/{id}")

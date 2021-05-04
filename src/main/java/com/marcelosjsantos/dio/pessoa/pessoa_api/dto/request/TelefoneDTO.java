@@ -1,6 +1,6 @@
 package com.marcelosjsantos.dio.pessoa.pessoa_api.dto.request;
 
-import com.marcelosjsantos.dio.pessoa.pessoa_api.enums.tipoTelefone;
+import com.marcelosjsantos.dio.pessoa.pessoa_api.enums.TipoTelefone;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,7 +20,7 @@ public class TelefoneDTO {
     private Long id;
 
     @Enumerated(EnumType.STRING)
-    private tipoTelefone tipo;
+    private TipoTelefone tipo;
 
     @NotEmpty
     @Size(min = 13, max = 14)

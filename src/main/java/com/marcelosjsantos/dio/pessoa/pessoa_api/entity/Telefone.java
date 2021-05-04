@@ -1,6 +1,6 @@
 package com.marcelosjsantos.dio.pessoa.pessoa_api.entity;
 
-import com.marcelosjsantos.dio.pessoa.pessoa_api.enums.tipoTelefone;
+import com.marcelosjsantos.dio.pessoa.pessoa_api.enums.TipoTelefone;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,7 +21,7 @@ public class Telefone {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private tipoTelefone tipo;
+    private TipoTelefone tipo;
 
     @Column(nullable = false)
     private String numero;

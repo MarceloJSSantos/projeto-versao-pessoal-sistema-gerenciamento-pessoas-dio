@@ -1,16 +1,20 @@
-# Sistema de gerenciamento de pessoas em API REST com Spring Boot
+## Sistema de gerenciamento de pessoas em API REST com Spring Boot
 Repositório com a VERSÃO PESSOAL do projeto prático "Desenvolvendo um sistema de gerenciamento de pessoas em API REST com Spring" da [DIO](https://digitalinnovation.one/)
 
 -----------------------
 
 Neste projeto foi desenvolvido um pequeno sistema para o gerenciamento de pessoas através de uma API REST, criada com o Spring Boot.
 
-Nesse projeto foram desenvolvidas as seguintes tarefas:
+
+
+#### Desenvolvimento
+
+Foram desenvolvidas as seguintes tarefas:
 
 * Configurações iniciais de um projeto com o Spring Boot Initialzr 
 * Criação de modelo de dados para o mapeamento de entidades em bancos de dados
-* Desenvolvimento de operações de gerenciamento de pessoas (Cadastro, leitura, atualização(integral) e remoção de pessoas do sistema) com o padrão arquitetural REST
-* Desenvolvimento de testes unitários para validação das funcionalidades
+* Desenvolvimento de operações de gerenciamento de pessoas  (Cadastro, leitura, atualização(integral) e remoção de pessoas do sistema) com o padrão arquitetural REST (GET, POST, PUT e DELETE)
+* Desenvolvimento de teste unitário para validação da funcionalidade (só para o método createPessoa, verificando a mensagem de retorno)
 * Implantação do sistema na nuvem através do Heroku
 
 
@@ -18,11 +22,11 @@ Nesse projeto foram desenvolvidas as seguintes tarefas:
 #### Tecnologias e Dependências utilizadas
 
 - Java 11
-- Maven 3.6.3 (utilizando a 3.8.1)
+- Maven 3.8.1
   - **Lombok**
   - **Map Struct**
   - **H2 Database**
-- Spring Boot (última versão estável  - utilizando 2.4.5)
+- Spring Boot (2.4.5)
   - **Spring Boot DevTools**
   - **Spring Web**
   - **Spring Data JPA** 
@@ -41,9 +45,9 @@ Para executar o projeto no terminal, digite o seguinte comando:
 mvn spring-boot:run 
 ```
 
-Após executar o comando acima, basta apenas abrir o endereço ``http://localhost:8080/api/v1`` + URN e visualizar a execução do projeto:
+Após executar o comando acima, basta apenas abrir o endereço ``http://localhost:8080/api/v1`` + RECURSO e visualizar a execução do projeto:
 
-| MÉTODO | URN           | RESULTADO                               |
+| MÉTODO | RECURSO       | RESULTADO                               |
 | ------ | ------------- | --------------------------------------- |
 | GET    | /pessoas      | retorna lista de pessoas                |
 | GET    | /pessoas/{id} | retorna uma pessoa específica           |
@@ -89,4 +93,11 @@ Exemplo de uma requisição PUT
         ]
     }
 ```
+
+
+
+#### Melhorias futuras
+
+- Desenvolvimento de testes unitários para validação de outras funcionalidades (negócio)
+- Desenvolvimento de operações de outros métodos HTTP  (PATCH, HEAD e OPTION)
 
